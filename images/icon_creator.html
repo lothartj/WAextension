@@ -6,58 +6,42 @@
 <body>
   <h1>WhatsApp Contact Exporter Icon Creator</h1>
   <p>This page will automatically create the icons needed for the extension.</p>
-  
   <div>
     <h2>Icon 16x16</h2>
     <canvas id="canvas16" width="16" height="16"></canvas>
     <p><a id="download16" href="#">Download</a></p>
   </div>
-  
   <div>
     <h2>Icon 48x48</h2>
     <canvas id="canvas48" width="48" height="48"></canvas>
     <p><a id="download48" href="#">Download</a></p>
   </div>
-  
   <div>
     <h2>Icon 128x128</h2>
     <canvas id="canvas128" width="128" height="128"></canvas>
     <p><a id="download128" href="#">Download</a></p>
   </div>
-  
   <script>
     function drawIcon(canvas, size) {
       const ctx = canvas.getContext('2d');
-      
-      // Fill with WhatsApp green
       ctx.fillStyle = '#128C7E';
       ctx.fillRect(0, 0, size, size);
-      
-      // Draw "W" in white
       ctx.fillStyle = 'white';
       ctx.font = `bold ${size * 0.7}px Arial`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText('W', size / 2, size / 2);
-      
       return canvas;
     }
-    
     function setupDownload(canvasId, linkId, filename) {
       const canvas = document.getElementById(canvasId);
       const link = document.getElementById(linkId);
-      
       drawIcon(canvas, canvas.width);
-      
       link.href = canvas.toDataURL('image/png');
       link.download = filename;
-      
-      // Auto-click to download
       // Uncomment this if you want auto-download
       // link.click();
     }
-    
-    // Set up all icon downloads
     window.onload = function() {
       setupDownload('canvas16', 'download16', 'icon16.png');
       setupDownload('canvas48', 'download48', 'icon48.png');
@@ -65,4 +49,4 @@
     };
   </script>
 </body>
-</html> 
+</html>

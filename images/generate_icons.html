@@ -28,64 +28,48 @@
 <body>
   <h1>WhatsApp Contact Exporter Icon Generator</h1>
   <p>Click the buttons below to download the icons in different sizes.</p>
-  
   <div class="icon-container">
     <h2>Icon 128x128</h2>
     <canvas id="canvas128" width="128" height="128"></canvas>
     <br>
     <button onclick="downloadIcon(128)">Download</button>
   </div>
-  
   <div class="icon-container">
     <h2>Icon 48x48</h2>
     <canvas id="canvas48" width="48" height="48"></canvas>
     <br>
     <button onclick="downloadIcon(48)">Download</button>
   </div>
-  
   <div class="icon-container">
     <h2>Icon 16x16</h2>
     <canvas id="canvas16" width="16" height="16"></canvas>
     <br>
     <button onclick="downloadIcon(16)">Download</button>
   </div>
-  
   <script>
-    // The SVG data
     const svgData = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
       <!-- Background -->
       <rect x="8" y="8" width="112" height="112" rx="16" fill="#128C7E" />
-      
       <!-- Address Book Icon -->
       <path d="M40 32C34.5 32 30 36.5 30 42V86C30 91.5 34.5 96 40 96H88C93.5 96 98 91.5 98 86V42C98 36.5 93.5 32 88 32H40ZM40 38H88C90.2 38 92 39.8 92 42V86C92 88.2 90.2 90 88 90H40C37.8 90 36 88.2 36 86V42C36 39.8 37.8 38 40 38Z" fill="white" />
-      
       <!-- Contact Silhouette -->
       <circle cx="64" cy="52" r="10" fill="white" />
       <path d="M64 64C54 64 46 72 46 82H82C82 72 74 64 64 64Z" fill="white" />
-      
       <!-- Export Arrow -->
       <path d="M98 64L84 50V58H64V70H84V78L98 64Z" fill="#25D366" />
     </svg>`;
-    
-    // Function to render SVG to canvas
     function renderSVG(size) {
       const canvas = document.getElementById(`canvas${size}`);
       const ctx = canvas.getContext('2d');
-      
-      // Create image from SVG
       const img = new Image();
       img.onload = function() {
         ctx.clearRect(0, 0, size, size);
         ctx.drawImage(img, 0, 0, size, size);
       };
-      
-      // Convert SVG to data URL
       const svgBlob = new Blob([svgData], {type: 'image/svg+xml'});
       const url = URL.createObjectURL(svgBlob);
       img.src = url;
     }
-    
-    // Function to download icon
     function downloadIcon(size) {
       const canvas = document.getElementById(`canvas${size}`);
       const link = document.createElement('a');
@@ -93,8 +77,6 @@
       link.href = canvas.toDataURL('image/png');
       link.click();
     }
-    
-    // Render all icons on page load
     window.onload = function() {
       renderSVG(128);
       renderSVG(48);
@@ -102,4 +84,4 @@
     };
   </script>
 </body>
-</html> 
+</html>
