@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Contact Exporter</title>
+  <link rel="stylesheet" href="css/popup.css">
+  <script src="lib/xlsx.full.min.js"></script>
+  <script src="lib/FileSaver.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WhatsApp Contact Exporter</h1>
+      <p class="author">by <a href="https://github.com/lothartj" target="_blank">Lothar Tjipueja</a></p>
+    </header>
+    
+    <div class="status-container">
+      <div id="status" class="status">Please open WhatsApp Web to extract contacts</div>
+      <div id="count" class="count"></div>
+    </div>
+    
+    <div class="button-container">
+      <button id="extract" class="btn primary">Extract Contacts</button>
+    </div>
+    
+    <div class="export-container">
+      <h2>Export Options</h2>
+      <div class="export-buttons">
+        <button id="exportCSV" class="btn export" disabled>CSV</button>
+        <button id="exportVCard" class="btn export" disabled>vCard</button>
+        <button id="exportExcel" class="btn export" disabled>Excel</button>
+      </div>
+    </div>
+    
+    <div class="contacts-container">
+      <h2>Contacts Preview</h2>
+      <div id="contacts-list" class="contacts-list">
+        <div class="no-contacts">No contacts extracted yet</div>
+      </div>
+    </div>
+  </div>
+  <script src="js/popup.js"></script>
+</body>
+</html> 

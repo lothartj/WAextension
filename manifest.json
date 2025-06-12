@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Contact Exporter",
+  "version": "1.0",
+  "description": "Extract and export WhatsApp Web contacts to CSV, vCard, or Excel",
+  "permissions": ["activeTab", "storage", "downloads", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon.svg",
+      "48": "images/icon.svg",
+      "128": "images/icon.svg"
+    }
+  },
+  "icons": {
+    "16": "images/icon.svg",
+    "48": "images/icon.svg",
+    "128": "images/icon.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
+  "author": "Lothar Tjipueja (https://github.com/lothartj)"
+} 
