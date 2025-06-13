@@ -1,6 +1,6 @@
 # WhatsApp Contact Exporter
 
-A Chrome extension that allows you to extract and export your WhatsApp Web contacts to CSV, vCard, or Excel formats.
+A Chrome extension that allows you to extract and export your WhatsApp Web contacts to CSV, vCard, or Excel formats
 
 ## Features
 
